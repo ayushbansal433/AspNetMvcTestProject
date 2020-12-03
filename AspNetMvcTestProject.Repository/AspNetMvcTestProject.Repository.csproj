@@ -54,58 +54,58 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs">
-      <DependentUpon>AspNetMvcTestProject.tt</DependentUpon>
+      <DependentUpon>TestProjectEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="AspNetMvcTestProject.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AspNetMvcTestProject.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetMvcTestProject.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AspNetMvcTestProject.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetMvcTestProject.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AspNetMvcTestProject.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="IRepository\IRepository.cs" />
+    <Compile Include="IRepository\ITestRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\TestRepo.cs" />
+    <Compile Include="TestProjectEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestProjectEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestProjectEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestProjectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TestProjectEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestProjectEntities.edmx</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>AspNetMvcTestProject.tt</DependentUpon>
+      <DependentUpon>TestProjectEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="UserAddressMapping.cs">
-      <DependentUpon>AspNetMvcTestProject.tt</DependentUpon>
+      <DependentUpon>TestProjectEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="AspNetMvcTestProject.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AspNetMvcTestProject.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="AspNetMvcTestProject.edmx.diagram">
-      <DependentUpon>AspNetMvcTestProject.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AspNetMvcTestProject.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AspNetMvcTestProject.edmx</DependentUpon>
-      <LastGenOutput>AspNetMvcTestProject.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="AspNetMvcTestProject.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AspNetMvcTestProject.edmx</DependentUpon>
-      <LastGenOutput>AspNetMvcTestProject.cs</LastGenOutput>
-    </Content>
+    <EntityDeploy Include="TestProjectEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TestProjectEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TestProjectEntities.edmx.diagram">
+      <DependentUpon>TestProjectEntities.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestProjectEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestProjectEntities.edmx</DependentUpon>
+      <LastGenOutput>TestProjectEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TestProjectEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TestProjectEntities.edmx</DependentUpon>
+      <LastGenOutput>TestProjectEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -2,6 +2,7 @@
 using AspNetMvcTestProject.Repository;
 using AspNetMvcTestProject.Repository.IRepository;
 using AspNetMvcTestProject.Service.ITestProjectService;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,23 +13,29 @@ namespace AspNetMvcTestProject.Service.TestProjectService
 {
     public class TestService : ITestService
     {
-        private readonly IRepository _repository;
-        public TestService(IRepository repository)
+        private readonly ITestRepo _repository;
+        public TestService(ITestRepo repository)
         {
             _repository = repository;
         }
 
         public async Task<List<UserDto>> GetAllUsers()
         {
-            return (await _repository.GetUsers()).Select(x => new List<UserDto>().Select(y =>
+            try
             {
-                y.Age = x.Age;
-                y.Id = x.Id;
-                y.Email = x.Email;
-                y.Interests = x.Interests;
-                y.Name = x.Name;
-            })
-            );
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<User, UserDto>();
+                });
+
+                IMapper mapper = config.CreateMapper();
+                return mapper.Map<List<UserDto>>(await _repository.GetUsers());
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
     }
 }
